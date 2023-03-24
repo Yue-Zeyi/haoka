@@ -1,0 +1,34 @@
+.navbar {
+  z-index: 1;
+}
+.container-fluid {
+  margin-top: -60px;
+  padding-top: 60px;
+}
+.nav-left .list-group-item.active {
+  background-color: transparent;
+  border-color: inherit;
+}
+.nav-left .active a {
+  color: #007bff !important;
+}
+
+.ck-content {
+  height: 300px;
+}
+
+.delimg {
+  right: 10px;
+  top: 10px;
+}
+
+.toasts {
+  position: absolute;
+  min-width: 300px;
+  right: 0;
+  top: 80px;
+}
+table tbody tr:not([id='thead']):hover {
+  cursor: pointer;
+  background-color: #e9e9e9;
+}

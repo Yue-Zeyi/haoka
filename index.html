@@ -1,0 +1,146 @@
+<html lang="zh">
+
+<head>
+  <meta charset="utf-8">
+  <!--<html style="filter: progid:DXImageTransform.Microsoft.BasicImage(grayscale=1);
+    -webkit-filter: grayscale(100%);">-->
+  <title>号卡中心</title>
+  <meta name="baidu-site-verification" content="code-MpNsmn1wYG" />
+  <meta name="viewport"
+    content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <!--<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">-->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <!-- <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">-->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="keywords" content="19元月租大流量卡">
+  <meta name="description" content="移动电话卡,联通电话卡,电信电话卡">
+  <link href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="icon" href="favicon.ico" mce_href="favicon.ico" type="image/x-icon" />
+  <style>
+    .add-btn {
+      position: fixed;
+      right: 0px;
+      text-decoration: none;
+      cursor: pointer;
+      text-align: center;
+      border-radius: 50px 0px 0px 50px;
+      display: inline-block;
+      padding: 3px 9px;
+      color: #fff;
+    }
+
+    .detail {
+      top: 120px;
+      background-color: #23c6c8;
+      border-color: #23c6c8;
+    }
+
+    .query {
+      top: 80px;
+      background-color: #1ab394;
+      border-color: #1ab394;
+    }
+
+    .gzh {
+      top: 40px;
+      background-color: #1ab394;
+      border-color: #1ab394;
+    }
+
+    iframe::-webkit-scrollbar {
+      width: 0px
+    }
+  </style>
+
+</head>
+
+<body style="width: 100vw;height: 0vh;margin: 0px;overflow:hidden;">
+  <iframe id="mainFrame" src="zgdx.php" style="border-width: 0px;width: 100vw;height: 92vh;overflow:visible;">
+  </iframe>
+  <div class="footer row">
+    <div class="col-xs-3 text-center tejia">
+      <a onclick="index()">
+        <p style="color: black;margin: 6 0 5px;">
+          <img style="width: 24px;" src="img/sy.png">
+        </p>
+        <p style="color: black;">首页</p>
+      </a>
+    </div>
+
+    <div class="col-xs-3 text-center shouye">
+      <a onclick="zxkf()">
+        <p style="color: #dc3c41;margin: 6 0 5px;">
+          <img style="width: 24px;" src="img/zxkf.png">
+        </p>
+        <p style="color: black;">在线客服</p>
+      </a>
+    </div>
+
+    <div class="col-xs-3 text-center shouye">
+      <a onclick="gzgzh()">
+        <p style="color: #dc3c41;margin: 6 0 5px;">
+          <img style="width: 24px;" src="img/gzgzh.png">
+        </p>
+        <p style="color: black;">加盟代理</p>
+      </a>
+    </div>
+
+    <div class="col-xs-3 text-center queryOrder">
+      <a onclick="cxzx()">
+        <p style="color: black;margin: 6 0 5px;">
+          <img style="width: 24px;" src="img/cxzx.png">
+        </p>
+        <p style="color: black;">查询中心</p>
+      </a>
+    </div>
+  </div>
+  <!-- 弹窗代码开始 -->
+
+  <script src="https://cdn.bootcss.com/sweetalert/2.1.0/sweetalert.min.js"></script>
+  <script>
+    swal('说明', '\n\n1.所有号卡均为三大运营商正规手机卡。 \n\n2.本人实名申请激活。申请身份证信息需和激活身份证信息需保持一致。  \n\n3.不可以重复申请，如需申请多张，请联系客服申请。 \n\n4.所有套餐按照要求参加首次充值规定的金额后，才可以享受优惠(请仔细查阅)', 'success'); function AddFavorite(title, url) {
+      try {
+
+        window.external.addFavorite(url, title);
+
+      }
+
+      catch (e) {
+
+        try {
+
+          window.sidebar.addPanel(title, url,);
+
+        }
+
+        catch (e) {
+
+          alert("抱歉，您所使用的浏览器无法完成此操作。");
+
+        }
+
+      }
+
+    }
+
+  </script>
+
+</body>
+<script>
+  function index() {
+    document.getElementById("mainFrame").src = "zgdx.php";
+  }
+  function zxkf() {
+    document.getElementById("mainFrame").src = "kf.html";
+  }
+  function gzgzh() {
+    document.getElementById("mainFrame").src = "dl.html";
+  }
+  function cxzx() {
+    document.getElementById("mainFrame").src = "https://haokawx.lot-ml.com/Search/Index";
+  }
+</script>
+
+</html>
