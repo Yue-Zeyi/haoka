@@ -1,3 +1,6 @@
+* {
+-webkit-overflow-scrolling: touch;
+}
 body {
   margin: 0 auto;
   font: normal 14px/1.5 Tahoma, 'Lucida Grande', Verdana, 'Microsoft Yahei', STXihei, hei;
@@ -94,23 +97,22 @@ div {
 }
 .box {
   display: -webkit-box;
-  overflow: auto;
+  overflow-x: auto;
   /*适应苹果*/
   -webkit-overflow-scrolling: touch;
-}
-.box::-webkit-scrollbar {
-  width: 0;
 }
 
 .cat_child {
   color: #333;
   text-align: center;
   width: 33.333%;
-  float: left;
   font-size: 14px;
-  margin: 0px 5px 0 0;
+  margin-right: 5px;
 }
 
+.box::-webkit-scrollbar {
+  display: none;
+}
 .cat_child .active {
   color: #ff5500;
   padding: 5px 5px;
