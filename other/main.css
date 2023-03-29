@@ -92,6 +92,15 @@ div {
   font-size: 14px;
   line-height: 23px;
 }
+.box {
+  display: -webkit-box;
+  overflow: auto;
+  /*适应苹果*/
+  -webkit-overflow-scrolling: touch;
+}
+.box::-webkit-scrollbar {
+  width: 0;
+}
 
 .cat_child {
   color: #333;
@@ -99,6 +108,7 @@ div {
   width: 33.333%;
   float: left;
   font-size: 14px;
+  margin: 0px 5px 0 0;
 }
 
 .cat_child .active {
@@ -133,7 +143,7 @@ div {
 }
 
 .fenlei ul {
-  height: 30px;
+  height: 40px;
   padding-bottom: 5px;
   padding-top: 15px;
 }

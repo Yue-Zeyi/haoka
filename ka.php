@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maxi-mum-scale=1.0,user-scalable=no" name="viewport" />
   <title>号卡中心</title>
   <link rel="stylesheet" href="other/main.css">
 </head>
@@ -39,30 +40,31 @@
   <div class="fenlei">
     <div class="banner">限量领取<a class="right" style="float:right">流量领不停 免费送到家</a></div>
     <div class="navall">
-      <ul>
-        <li class="cat_child">
-          <a href="zgdx.php">中国电信</a>
-        </li>
-        <li class="cat_child">
-          <a href="zglt.php" class="active">中国联通</a>
-        </li>
-        <li class="cat_child">
-          <a href="zgyd.php">中国移动</a>
-        </li>
-      </ul>
       <!--分类结束-->
       <!-- PHP获取产品 -->
       <?php
       include_once("untils/conn.php");
       mysqli_query($con, "set names utf8");
+      $yysname = $_GET['yys'];
       if ($con) {
         //选择数据库
         if ($db) {
           //获取数据总行数
-          $sql = "select * from list  where yys='中国联通'";
+          $sql = "select * from list  where yys='$yysname' ORDER BY xuhao DESC";
+          $sortsql = "select * from sort  ORDER BY sortid DESC";
           $data = mysqli_query($con, $sql);
-      ?>
-
+          $sortdata = mysqli_query($con, $sortsql);
+      ?> <ul class="box">
+            <?php
+            while ($sortrow = mysqli_fetch_array($sortdata)) {
+            ?> <?php $dqid = $sortrow["yys"] ?>
+              <li class="cat_child">
+                <a href="?yys=<?php echo $sortrow["yys"] ?>" class="<?php echo $yysname == $dqid ? 'active' : '' ?>"><?php echo $sortrow["yys"] ?></a>
+              </li>
+            <?php
+            }
+            ?>
+          </ul>
           <?php
           while ($row = mysqli_fetch_array($data)) {
           ?>

@@ -15,95 +15,80 @@
     session_start();
     if (isset($_SESSION["username"])) {
     ?>
-        <?php
-        include_once("../untils/conn.php");
-        mysqli_query($con, "set names utf8");
-        if ($con) {
-            if ($db) {
-                $sql1 = "SELECT COUNT(*) FROM list WHERE yys='中国电信';";
-                $sql2 = "SELECT COUNT(*) FROM list WHERE yys='中国联通';";
-                $sql3 = "SELECT COUNT(*) FROM list WHERE yys='中国移动';";
-                $data1 = mysqli_query($con, $sql1);
-                $data2 = mysqli_query($con, $sql2);
-                $data3 = mysqli_query($con, $sql3);
-                $zgdx = mysqli_fetch_array($data1)[0];
-                $zglt = mysqli_fetch_array($data2)[0];
-                $zgyd = mysqli_fetch_array($data3)[0];
-            }
-        }
-        ?>
-        <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
-            <a class="navbar-brand" href="#">
-                <img src="other/avatar.jpg" width="30" height="30" alt="">
-                号卡推广管理平台
-            </a>
-
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item dropdown">
-                    <a class="nav-link" href="user.php" id="navbarDropdown" data-toggle="dropdown">
-                        个人中心
-                    </a>
-                </li>
-            </ul>
-        </nav>
-
-        <div class="container-fluid vh-100">
-            <div class="row h-100">
-                <div class="col-2 bg-white border-right nav-left p-0">
-                    <div class="row text-center mt-3 px-5">
-                        <a href="add.php" class="btn btn-primary rounded-0 col">添加产品</a>
-                    </div>
-                    <div class="list-group list-group-flush border-top border-bottom mt-3 text-center">
-                        <li class="list-group-item list-group-item-action">
-                            <a href="index.php" class="text-decoration-none text-secondary">
-                                <i class="iconfont icon-home pr-1"></i>管理首页
-                            </a>
-                        </li>
-                        <li class="list-group-item list-group-item-action">
-                            <a href="list.php" class="text-decoration-none text-secondary">
-                                <i class="iconfont icon-neirongguanli pr-1"></i>产品管理
-                            </a>
-                        </li>
-                        <li class="list-group-item list-group-item-action">
-                            <a href="system.php" class="text-decoration-none text-secondary">
-                                <i class="iconfont icon-zhanghuguanli pr-1"></i>系统管理
-                            </a>
-                        </li>
+        <?php require_once('head.php'); ?>
+        <div class="col-10">
+            <div class="p-3 border mb-3 bg-white d-flex justify-content-between">
+                <h4>欢迎使用号卡推广管理平台！
+                </h4>
+                <a href="loginout.php" class="text-dark text-decoration-none"><i class="iconfont icon-tuichu pr-1"></i>退出</a>
+            </div>
+            <div class="card-deck">
+                <div class="card text-center">
+                    <div class="card-header bg-success text-white">程序名称</div>
+                    <div class="card-body">
+                        号卡推广管理系统
                     </div>
                 </div>
-                <div class="col-10">
-                    <div class="p-3 border mb-3 bg-white d-flex justify-content-between">
-                        <h4>欢迎使用号卡推广管理平台！
-                        </h4>
-                        <a href="loginout.php" class="text-dark text-decoration-none"><i class="iconfont icon-tuichu pr-1"></i>退出</a>
+                <div class="card text-center">
+                    <div class="card-header bg-info text-white">当前版本</div>
+                    <div class="card-body">
+                        1.2.0 | Standard
                     </div>
-                    <div class="card-deck">
-                        <div class="card text-center">
-                            <div class="card-header bg-success text-white">中国电信</div>
-                            <div class="card-body">
-                                <?php echo "<p>共 $zgdx 个产品"; ?>
-                            </div>
+                </div>
+                <div class="card text-center">
+                    <div class="card-header bg-warning text-white">环境支持</div>
+                    <div class="card-body">
+                        PHP≥70+Mysql5.7
+                    </div>
+                </div>
+                <div class="card text-center">
+                    <div class="card-header bg-dark text-white">GitHub</div>
+                    <div class="card-body">
+                        <a href="https://github.com/Yue-Zeyi/haoka">点击进入</a>
+                    </div>
+                </div>
+            </div>
+            <div class="row" style="margin-top: 10px;">
+                <div class="col-sm-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">系统说明 (使用建议)</h5>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">1.所有图片链接均可以使用图床获取URL来填写！</li>
+                                <li class="list-group-item">2.添加产品前先添加类目，修改类目后需修改产品！</li>
+                                <li class="list-group-item">3.前台产品排列顺序依据排序数字，数字越大越靠前！</li>
+                            </ul>
                         </div>
-                        <div class="card text-center">
-                            <div class="card-header bg-info text-white">中国联通</div>
-                            <div class="card-body">
-                                <?php echo "<p>共 $zglt 个产品"; ?>
-                            </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">使用须知 (用户协议)</h5>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">1.本程序禁止用于诈骗等任何违法违规活动！</li>
+                                <li class="list-group-item">2.使用本程序发布的信息必须保证真实可靠！</li>
+                                <li class="list-group-item">3.使用本程序产生所有利益纠纷与作者无关！</li>
+                            </ul>
                         </div>
-                        <div class="card text-center">
-                            <div class="card-header bg-warning text-white">中国移动</div>
-                            <div class="card-body">
-                                <?php echo "<p>共 $zgyd 个产品"; ?>
-                            </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row" style="margin-top: 10px;">
+                <div class="col-sm-12">
+                    <div class="card">
+                        <div class="card-body text-center">
+                            <a href="https://imgse.com/" class="btn btn-primary" target="_blank">云图床(可用于获取图片链接)</a>
+                            <a href="https://cli.im/url" class="btn btn-success" target="_blank">草料网址二维码（网址转换成二维码）</a>
+                            <a href="https://www.yuezeyi.com/541.html" class="btn btn-info" target="_blank">程序更新记录（最快使用最新版）</a>
+                            <a href="https://www.yuezeyi.com/" class="btn btn-dark" target="_blank">岳泽以个人博客（来个点击支持一下）</a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
-
 </body>
-<script src="js/public.js"></script>
+
 <?php
     } else {
         echo "<script>alert('您尚未登录，没有权限访问该页面');location.href='login.php';</script>";

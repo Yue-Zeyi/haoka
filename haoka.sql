@@ -11,7 +11,7 @@
  Target Server Version : 50726
  File Encoding         : 65001
 
- Date: 22/03/2023 15:24:22
+ Date: 28/03/2023 22:46:22
 */
 
 SET NAMES utf8mb4;
@@ -31,7 +31,23 @@ CREATE TABLE `admin`  (
 -- ----------------------------
 -- Records of admin
 -- ----------------------------
-INSERT INTO `admin` VALUES ('1', 'admin', 'admin');
+INSERT INTO `admin` VALUES ('1', 'admin', '123456');
+
+-- ----------------------------
+-- Table structure for kefu
+-- ----------------------------
+DROP TABLE IF EXISTS `kefu`;
+CREATE TABLE `kefu`  (
+  `kefu` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT NULL,
+  `qrcode` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `kfwx` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `ontime` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL
+) ENGINE = MyISAM CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of kefu
+-- ----------------------------
+INSERT INTO `kefu` VALUES ('kefu', 'http://haoka.zeyiwl.cn/img/wx.png', 'Ds-5G666888', '周一至周六上午08:30至12:00，下午14:00至20:30，其它时间不一定时刻在线，会抽出时间上线处理，请大家耐心等待！谢谢！');
 
 -- ----------------------------
 -- Table structure for list
@@ -44,17 +60,29 @@ CREATE TABLE `list`  (
   `zhutu` text CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `ltime` text CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `yys` text CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `xuhao` int(11) NULL DEFAULT NULL,
   `link` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = MyISAM AUTO_INCREMENT = 7 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Dynamic;
+) ENGINE = MyISAM AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of list
 -- ----------------------------
-INSERT INTO `list` VALUES (1, '电信星辰卡', '9元180G哈哈哈as啊大家阿斯达卡省的去啊哇顶起1', 'https://haokaapi.lot-ml.com/upload/ProductUpDateImage/20230315/92ddc56c4d444ae5985cf44aa068890a.jpg', '长期套餐', '中国电信', 'https://haokawx.lot-ml.com/h5order/index?pudID=62&userid=3443');
-INSERT INTO `list` VALUES (2, '电信天星卡', '19员200G', 'https://haokaapi.lot-ml.com/upload/ProductUpDateImage/20230315/92ddc56c4d444ae5985cf44aa068890a.jpg', '长期套餐', '中国电信', '123');
-INSERT INTO `list` VALUES (3, '电信天星卡', '19员200G', 'https://haokaapi.lot-ml.com/upload/ProductUpDateImage/20230315/92ddc56c4d444ae5985cf44aa068890a.jpg', '长期套餐', '中国联通', '123');
-INSERT INTO `list` VALUES (5, '电信神卡', '牛逼的电信神卡', 'https://haokaapi.lot-ml.com/upload/ProductUpDateImage/20230316/0d1d5f53be954d0dbd9fc1f006818b86.jpg', '长期有效', '中国移动', 'qweqwe');
-INSERT INTO `list` VALUES (6, '联通牛逼卡', '超级牛逼', 'https://haokaapi.lot-ml.com/upload/ProductUpDateImage/20230316/0d1d5f53be954d0dbd9fc1f006818b86.jpg', '两年套餐', '中国联通', 'https://haokawx.lot-ml.com/h5order/index?pudID=62&userid=3443');
+
+-- ----------------------------
+-- Table structure for sort
+-- ----------------------------
+DROP TABLE IF EXISTS `sort`;
+CREATE TABLE `sort`  (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `yys` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL COMMENT '运营商名称',
+  `yysabbr` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL COMMENT '字母缩写',
+  `sortid` int(11) NOT NULL COMMENT '序号',
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = MyISAM AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of sort
+-- ----------------------------
 
 SET FOREIGN_KEY_CHECKS = 1;

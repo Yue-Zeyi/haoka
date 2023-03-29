@@ -18,109 +18,97 @@
     $data = mysqli_query($con, "select * from list where id=" . $id);
     $rows = mysqli_fetch_row($data);
     ?>
-    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
-        <a class="navbar-brand" href="#">
-            <img src="other/avatar.jpg" width="30" height="30" alt="">
-            号卡推广管理后台
-        </a>
-
-        <ul class="navbar-nav ml-auto">
-            <li class="nav-item dropdown">
-                <a class="nav-link" href="#" id="navbarDropdown" data-toggle="dropdown">
-                    个人中心
-                </a>
-            </li>
-        </ul>
-    </nav>
-
-    <div class="container-fluid vh-100">
-        <div class="row h-100">
-            <div class="col-2 bg-white border-right nav-left p-0">
-                <div class="row text-center mt-3 px-5">
-                    <a href="add.php" class="btn btn-primary rounded-0 col">添加产品</a>
-                </div>
-                <div class="list-group list-group-flush border-top border-bottom mt-3 text-center">
-                    <li class="list-group-item list-group-item-action">
-                        <a href="index.php" class="text-decoration-none text-secondary">
-                            <i class="iconfont icon-home pr-1"></i>管理首页
-                        </a>
-                    </li>
-                    <li class="list-group-item list-group-item-action">
-                        <a href="list.php" class="text-decoration-none text-secondary">
-                            <i class="iconfont icon-neirongguanli pr-1"></i>产品管理
-                        </a>
-                    </li>
-                    <li class="list-group-item list-group-item-action">
-                        <a href="system.php" class="text-decoration-none text-secondary">
-                            <i class="iconfont icon-zhanghuguanli pr-1"></i>系统管理
-                        </a>
-                    </li>
-                </div>
-            </div>
-            <div class="col-10">
-                <div class="p-3 border mb-3 bg-white">
-                    <h4 class="mb-0">产品修改</h4>
-                </div>
-                <div class="row mt-3">
-                    <div class="col">
-                        <div class="card">
-                            <div class="card-header bg-primary text-white d-flex justify-content-between">
-                                <h6 class="mb-0 align-self-center">产品修改</h6>
+    <?php require_once('head.php'); ?>
+    <div class="col-10">
+        <div class="p-3 border mb-3 bg-white">
+            <h4 class="mb-0">产品修改</h4>
+        </div>
+        <div class="row mt-3">
+            <div class="col">
+                <div class="card">
+                    <div class="card-header bg-primary text-white d-flex justify-content-between">
+                        <h6 class="mb-0 align-self-center">产品修改</h6>
+                    </div>
+                    <div class="card-body">
+                        <form action="doUpdate.php" method="POST">
+                            <div class="form-row">
+                                <label for="title" class="col-2 text-center col-form-label">名称：</label>
+                                <input type="text" class="col-8 form-control" name="name" placeholder="请输入产品名称" value="<?php echo $rows[1] ?>" required>
+                                <span class="col-2 col-form-label text-danger">* 必填项</span>
                             </div>
-                            <div class="card-body">
-                                <form action="doUpdate.php" method="POST">
-                                    <div class="form-row">
-                                        <label for="title" class="col-2 text-center col-form-label">名称：</label>
-                                        <input type="text" class="col-8 form-control" name="name" placeholder="请输入产品名称" value="<?php echo $rows[1] ?>" required>
-                                        <span class="col-2 col-form-label text-danger">* 必填项</span>
-                                    </div>
-                                    <div class="form-row mt-3">
-                                        <label for="title" class="col-2 text-center col-form-label">介绍：</label>
-                                        <input type="text" class="col-8 form-control" name="jieshao" placeholder="请输入产品简短介绍" value="<?php echo $rows[2] ?>" required>
-                                        <span class=" col-2 col-form-label text-danger">* 必填项</span>
-                                    </div>
-                                    <div class="form-row mt-3">
-                                        <label for="title" class="col-2 text-center col-form-label">时长：</label>
-                                        <input type="text" class="col-8 form-control" name="ltime" placeholder="套餐时长,建议四个字" value="<?php echo $rows[4] ?>" required>
-                                        <span class="col-2 col-form-label text-danger">* 必填项</span>
-                                    </div>
-                                    <div class="form-row mt-3">
-                                        <label for="category_id" class="col-2 text-center col-form-label">运营商：</label>
+                            <div class="form-row mt-3">
+                                <label for="title" class="col-2 text-center col-form-label">介绍：</label>
+                                <input type="text" class="col-8 form-control" name="jieshao" placeholder="请输入产品简短介绍" value="<?php echo $rows[2] ?>" required>
+                                <span class=" col-2 col-form-label text-danger">* 必填项</span>
+                            </div>
+                            <div class="form-row mt-3">
+                                <label for="title" class="col-2 text-center col-form-label">时长：</label>
+                                <input type="text" class="col-8 form-control" name="ltime" placeholder="套餐时长,建议四个字" value="<?php echo $rows[4] ?>" required>
+                                <span class="col-2 col-form-label text-danger">* 必填项</span>
+                            </div>
+                            <div class="form-row mt-3">
+                                <label for="category_id" class="col-2 text-center col-form-label">运营商：</label>
+                                <?php
+                                include_once("../untils/conn.php");
+                                mysqli_query($con, "set names utf8");
+                                if ($con) {
+                                    //选择数据库
+                                    if ($db) {
+                                        //获取数据总行数
+                                        $sortsql = "select * from sort";
+                                        $sortdata = mysqli_query($con, $sortsql);
+                                ?>
                                         <select name="yys" id="category_id" class="col-8 form-control">
-                                            <option value="中国电信" name="yys">中国电信</option>
-                                            <option value="中国联通" name="yys">中国联通</option>
-                                            <option value="中国移动">中国移动</option>
+                                            <?php
+                                            while ($sortrow = mysqli_fetch_array($sortdata)) {
+                                            ?>
+                                                <option value="<?php echo $sortrow["yys"] ?>" name="yys"><?php echo $sortrow["yys"] ?></option>
+                                            <?php
+                                            }
+
+                                            ?>
                                         </select>
-                                        <span class="col-2 col-form-label text-danger">* 必填项</span>
-                                    </div>
-                                    <div class="form-row mt-3">
-                                        <label for="title" class="col-2 text-center col-form-label">主图链接：</label>
-                                        <input type="text" class="col-8 form-control" name="zhutu" placeholder="主图URL地址" value="<?php echo $rows[3] ?>" required>
-                                        <span class="col-2 col-form-label text-danger">* 必填项</span>
-                                    </div>
-                                    <div class="form-row mt-3">
-                                        <label for="title" class="col-2 text-center col-form-label">下单链接：</label>
-                                        <input type="text" class="col-8 form-control" name="link" value="<?php echo $rows[6] ?>" placeholder="请输入下单地址" required>
-                                        <span class="col-2 col-form-label text-danger">* 必填项</span>
-                                    </div>
-                                    <div class="form-row mt-3">
-                                        <input type="hidden" name="id" value="<?php echo $id ?>">
-                                        <div class="offset-2">
-                                            <button class="btn btn-success" type="submit" value="添加">确认修改</button>
-                                            <!-- <button class="btn btn-danger ml-3" type="reset" value="重置">返回</button> -->
-                                        </div>
-                                    </div>
-                                </form>
+                                <?php
+                                    }
+                                }
+
+                                ?>
+                                <span class="col-2 col-form-label text-danger">* 必填项</span>
+
                             </div>
-                        </div>
+                            <div class="form-row mt-3">
+                                <label for="title" class="col-2 text-center col-form-label">主图链接：</label>
+                                <input type="text" class="col-8 form-control" name="zhutu" placeholder="主图URL地址" value="<?php echo $rows[3] ?>" required>
+                                <span class="col-2 col-form-label text-danger">* 必填项</span>
+                            </div>
+                            <div class="form-row mt-3">
+                                <label for="title" class="col-2 text-center col-form-label">下单链接：</label>
+                                <input type="text" class="col-8 form-control" name="link" value="<?php echo $rows[7] ?>" placeholder="请输入下单地址" required>
+                                <span class="col-2 col-form-label text-danger">* 必填项</span>
+                            </div>
+                            <div class="form-row mt-3">
+                                <label for="title" class="col-2 text-center col-form-label">排序：</label>
+                                <input type="text" class="col-8 form-control" name="xuhao" value="<?php echo $rows[6] ?>" placeholder="序号越大越靠前" required>
+                                <span class="col-2 col-form-label text-danger">* 必填项</span>
+                            </div>
+                            <div class="form-row mt-3">
+                                <input type="hidden" name="id" value="<?php echo $id ?>">
+                                <div class="offset-2">
+                                    <button class="btn btn-success" type="submit" value="添加">确认修改</button>
+                                    <!-- <button class="btn btn-danger ml-3" type="reset" value="重置">返回</button> -->
+                                </div>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    </div>
+    </div>
 
 
 </body>
-<script src="js/public.js"></script>
+
 
 </html>

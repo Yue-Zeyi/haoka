@@ -6,8 +6,7 @@
     -webkit-filter: grayscale(100%);">-->
   <title>号卡中心</title>
   <meta name="baidu-site-verification" content="code-MpNsmn1wYG" />
-  <meta name="viewport"
-    content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0">
+  <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <!--<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">-->
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -57,8 +56,24 @@
 </head>
 
 <body style="width: 100vw;height: 0vh;margin: 0px;overflow:hidden;">
-  <iframe id="mainFrame" src="zgdx.php" style="border-width: 0px;width: 100vw;height: 92vh;overflow:visible;">
-  </iframe>
+  <?php
+  include_once("untils/conn.php");
+  mysqli_query($con, "set names utf8");
+  if ($con) {
+    //选择数据库
+    if ($db) {
+      //获取数据总行数
+      $sql = "select * from `sort` order by `sortid` desc limit 1";
+      $data = mysqli_query($con, $sql);
+      $rows = mysqli_fetch_row($data);
+      $index = $rows[1]
+  ?>
+      <iframe id="mainFrame" src="ka.php?yys=<?php echo $index ?>" style="border-width: 0px;width: 100vw;height: 92vh;overflow:visible;">
+      </iframe>
+  <?php
+    }
+  }
+  ?>
   <div class="footer row">
     <div class="col-xs-3 text-center tejia">
       <a onclick="index()">
@@ -100,22 +115,20 @@
 
   <script src="https://cdn.bootcss.com/sweetalert/2.1.0/sweetalert.min.js"></script>
   <script>
-    swal('说明', '\n\n1.所有号卡均为三大运营商正规手机卡。 \n\n2.本人实名申请激活。申请身份证信息需和激活身份证信息需保持一致。  \n\n3.不可以重复申请，如需申请多张，请联系客服申请。 \n\n4.所有套餐按照要求参加首次充值规定的金额后，才可以享受优惠(请仔细查阅)', 'success'); function AddFavorite(title, url) {
+    swal('说明', '\n\n1.所有号卡均为三大运营商正规手机卡。 \n\n2.本人实名申请激活。申请身份证信息需和激活身份证信息需保持一致。  \n\n3.不可以重复申请，如需申请多张，请联系客服申请。 \n\n4.所有套餐按照要求参加首次充值规定的金额后，才可以享受优惠(请仔细查阅)', 'success');
+
+    function AddFavorite(title, url) {
       try {
 
         window.external.addFavorite(url, title);
 
-      }
-
-      catch (e) {
+      } catch (e) {
 
         try {
 
-          window.sidebar.addPanel(title, url,);
+          window.sidebar.addPanel(title, url, );
 
-        }
-
-        catch (e) {
+        } catch (e) {
 
           alert("抱歉，您所使用的浏览器无法完成此操作。");
 
@@ -124,23 +137,26 @@
       }
 
     }
-
   </script>
 
 </body>
 <script>
   function index() {
-    document.getElementById("mainFrame").src = "zgdx.php";
+    parent.location.reload();
   }
+
   function zxkf() {
-    document.getElementById("mainFrame").src = "kf.html";
+    document.getElementById("mainFrame").src = "kf.php";
   }
+
   function gzgzh() {
     document.getElementById("mainFrame").src = "dl.html";
   }
+
   function cxzx() {
     document.getElementById("mainFrame").src = "https://haokawx.lot-ml.com/Search/Index";
   }
 </script>
+
 
 </html>

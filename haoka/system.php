@@ -17,78 +17,60 @@
   ?>
     <?php
     include_once("../untils/conn.php");
-    mysqli_query($con, "set names utf8");
-    if ($con) {
-      if ($db) {
-        $sql1 = "SELECT COUNT(*) FROM list WHERE yys='中国电信';";
-        $sql2 = "SELECT COUNT(*) FROM list WHERE yys='中国联通';";
-        $sql3 = "SELECT COUNT(*) FROM list WHERE yys='中国移动';";
-        $data1 = mysqli_query($con, $sql1);
-        $data2 = mysqli_query($con, $sql2);
-        $data3 = mysqli_query($con, $sql3);
-        $zgdx = mysqli_fetch_array($data1)[0];
-        $zglt = mysqli_fetch_array($data2)[0];
-        $zgyd = mysqli_fetch_array($data3)[0];
-      }
-    }
+    $kefu = 'kefu';
+    $sql = "select * from kefu where kefu='kefu'";
+    $data = mysqli_query($con, $sql);
+    $result = mysqli_fetch_row($data);
     ?>
-    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
-      <a class="navbar-brand" href="#">
-        <img src="other/avatar.jpg" width="30" height="30" alt="">
-        号卡推广管理平台
-      </a>
-
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item dropdown">
-          <a class="nav-link" href="user.php" id="navbarDropdown" data-toggle="dropdown">
-            个人中心
-          </a>
-        </li>
-      </ul>
-    </nav>
-
-    <div class="container-fluid vh-100">
-      <div class="row h-100">
-        <div class="col-2 bg-white border-right nav-left p-0">
-          <div class="row text-center mt-3 px-5">
-            <a href="add.php" class="btn btn-primary rounded-0 col">添加产品</a>
-          </div>
-          <div class="list-group list-group-flush border-top border-bottom mt-3 text-center">
-            <li class="list-group-item list-group-item-action">
-              <a href="index.php" class="text-decoration-none text-secondary">
-                <i class="iconfont icon-home pr-1"></i>管理首页
-              </a>
-            </li>
-            <li class="list-group-item list-group-item-action">
-              <a href="list.php" class="text-decoration-none text-secondary">
-                <i class="iconfont icon-neirongguanli pr-1"></i>产品管理
-              </a>
-            </li>
-            <li class="list-group-item list-group-item-action">
-              <a href="system.php" class="text-decoration-none text-secondary">
-                <i class="iconfont icon-zhanghuguanli pr-1"></i>系统管理
-              </a>
-            </li>
-          </div>
-        </div>
-        <div class="col-10">
-          <div class="p-3 border mb-3 bg-white d-flex justify-content-between">
-            <h4>欢迎使用号卡推广管理平台！
-            </h4>
-            <a href="loginout.php" class="text-dark text-decoration-none"><i class="iconfont icon-tuichu pr-1"></i>退出</a>
-          </div>
-          <div class="card-deck">
-            <div class="card text-center">
-              <div class="card-header bg-success text-white">抽空写！</div>
+    <?php require_once('head.php'); ?>
+    <div class="col-10">
+      <div class="p-3 border mb-3 bg-white d-flex justify-content-between">
+        <h4>客服信息配置
+        </h4>
+        <a href="loginout.php" class="text-dark text-decoration-none"><i class="iconfont icon-tuichu pr-1"></i>退出</a>
+      </div>
+      <div class="row mt-3">
+        <div class="col">
+          <div class="card">
+            <div class="card-header bg-primary text-white d-flex justify-content-between">
+              <h6 class="mb-0 align-self-center">修改客服信息</h6>
+            </div>
+            <div class="card-body">
+              <form action="doSystem.php" method="POST">
+                <div class="form-row">
+                  <label for="title" class="col-2 text-center col-form-label">二维码：</label>
+                  <input type="text" class="col-8 form-control" name="qrcode" placeholder="请输入新用户名" value="<?php echo $result[1] ?>" required>
+                  <span class="col-2 col-form-label text-danger">* 必填项</span>
+                </div>
+                <div class="form-row mt-3">
+                  <label for="title" class="col-2 text-center col-form-label">微信号：</label>
+                  <input type="text" class="col-8 form-control" name="kfwx" placeholder="请输入新密码" value="<?php echo $result[2] ?>" required>
+                  <span class=" col-2 col-form-label text-danger">* 必填项</span>
+                </div>
+                <div class="form-row mt-3">
+                  <label for="title" class="col-2 text-center col-form-label">在线时间：</label>
+                  <input type="text" class="col-8 form-control" name="ontime" placeholder="请输入新密码" value="<?php echo $result[3] ?>" required>
+                  <span class=" col-2 col-form-label text-danger">* 必填项</span>
+                </div>
+                <div class="form-row mt-3">
+                  <input type="hidden" name="kefu" value="<?php echo $kefu ?>">
+                  <div class="offset-2">
+                    <button class="btn btn-success" type="submit" value="添加">确认修改</button>
+                    <!-- <button class="btn btn-danger ml-3" type="reset" value="重置">返回</button> -->
+                  </div>
+                </div>
+              </form>
             </div>
           </div>
         </div>
       </div>
     </div>
+    </div>
+    </div>
 
 
 </body>
-<script src="js/public.js"></script>
+
 <?php
   } else {
     echo "<script>alert('您尚未登录，没有权限访问该页面');location.href='login.php';</script>";
