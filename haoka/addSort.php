@@ -34,12 +34,12 @@
               </div>
               <div class="form-row mt-3">
                 <label for="title" class="col-2 text-center col-form-label">缩写：</label>
-                <input type="text" class="col-8 form-control" name="yysabbr" placeholder="请输入英文缩写" required>
+                <input type="text" class="col-8 form-control" name="yysabbr" placeholder="请输入运营商英文缩写" required>
                 <span class="col-2 col-form-label text-danger">* 必填项</span>
               </div>
               <div class="form-row mt-3">
                 <label for="title" class="col-2 text-center col-form-label">序号：</label>
-                <input type="text" class="col-8 form-control" name="sortid" placeholder="序号越大越靠前" required>
+                <input type="text" class="col-8 form-control" name="sortid" placeholder="填写数字，数值越大越靠前" required>
                 <span class="col-2 col-form-label text-danger">* 必填项</span>
               </div>
               <div class="form-row mt-3">

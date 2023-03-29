@@ -62,7 +62,7 @@
                                             <?php
                                             while ($sortrow = mysqli_fetch_array($sortdata)) {
                                             ?>
-                                                <option value="<?php echo $sortrow["yys"] ?>" name="yys"><?php echo $sortrow["yys"] ?></option>
+                                                <option value="<?php echo $sortrow["yys"] ?>" name="yys" <?php echo $rows[5] == $sortrow["yys"]  ? 'selected' : '' ?>><?php echo $sortrow["yys"] ?></option>
                                             <?php
                                             }
 
@@ -88,7 +88,7 @@
                             </div>
                             <div class="form-row mt-3">
                                 <label for="title" class="col-2 text-center col-form-label">排序：</label>
-                                <input type="text" class="col-8 form-control" name="xuhao" value="<?php echo $rows[6] ?>" placeholder="序号越大越靠前" required>
+                                <input type="text" class="col-8 form-control" name="xuhao" value="<?php echo $rows[6] ?>" placeholder="填写数字，数值越大越靠前" required>
                                 <span class="col-2 col-form-label text-danger">* 必填项</span>
                             </div>
                             <div class="form-row mt-3">

@@ -78,7 +78,7 @@
                 <div class="col-sm-12">
                     <div class="card">
                         <div class="card-body text-center">
-                            <a href="https://imgse.com/" class="btn btn-primary" target="_blank">云图床(可用于获取图片链接)</a>
+                            <a href="https://www.hualigs.cn/" class="btn btn-primary" target="_blank">云图床(可用于获取图片链接)</a>
                             <a href="https://cli.im/url" class="btn btn-success" target="_blank">草料网址二维码（网址转换成二维码）</a>
                             <a href="https://www.yuezeyi.com/541.html" class="btn btn-info" target="_blank">程序更新记录（最快使用最新版）</a>
                             <a href="https://www.yuezeyi.com/" class="btn btn-dark" target="_blank">岳泽以个人博客（来个点击支持一下）</a>

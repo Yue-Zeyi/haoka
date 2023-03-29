@@ -39,17 +39,17 @@
               <form action="doSystem.php" method="POST">
                 <div class="form-row">
                   <label for="title" class="col-2 text-center col-form-label">二维码：</label>
-                  <input type="text" class="col-8 form-control" name="qrcode" placeholder="请输入新用户名" value="<?php echo $result[1] ?>" required>
+                  <input type="text" class="col-8 form-control" name="qrcode" placeholder="请输入客服/公众号二维码链接" value="<?php echo $result[1] ?>" required>
                   <span class="col-2 col-form-label text-danger">* 必填项</span>
                 </div>
                 <div class="form-row mt-3">
                   <label for="title" class="col-2 text-center col-form-label">微信号：</label>
-                  <input type="text" class="col-8 form-control" name="kfwx" placeholder="请输入新密码" value="<?php echo $result[2] ?>" required>
+                  <input type="text" class="col-8 form-control" name="kfwx" placeholder="请输入联系微信号" value="<?php echo $result[2] ?>" required>
                   <span class=" col-2 col-form-label text-danger">* 必填项</span>
                 </div>
                 <div class="form-row mt-3">
                   <label for="title" class="col-2 text-center col-form-label">在线时间：</label>
-                  <input type="text" class="col-8 form-control" name="ontime" placeholder="请输入新密码" value="<?php echo $result[3] ?>" required>
+                  <input type="text" class="col-8 form-control" name="ontime" placeholder="请输入客服在线时间介绍" value="<?php echo $result[3] ?>" required>
                   <span class=" col-2 col-form-label text-danger">* 必填项</span>
                 </div>
                 <div class="form-row mt-3">
