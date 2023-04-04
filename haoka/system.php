@@ -25,7 +25,7 @@
     <?php require_once('head.php'); ?>
     <div class="col-10">
       <div class="p-3 border mb-3 bg-white d-flex justify-content-between">
-        <h4>客服信息配置
+        <h4>其他信息配置
         </h4>
         <a href="loginout.php" class="text-dark text-decoration-none"><i class="iconfont icon-tuichu pr-1"></i>退出</a>
       </div>
@@ -33,7 +33,7 @@
         <div class="col">
           <div class="card">
             <div class="card-header bg-primary text-white d-flex justify-content-between">
-              <h6 class="mb-0 align-self-center">修改客服信息</h6>
+              <h6 class="mb-0 align-self-center">信息修改</h6>
             </div>
             <div class="card-body">
               <form action="doSystem.php" method="POST">
@@ -50,6 +50,21 @@
                 <div class="form-row mt-3">
                   <label for="title" class="col-2 text-center col-form-label">在线时间：</label>
                   <input type="text" class="col-8 form-control" name="ontime" placeholder="请输入客服在线时间介绍" value="<?php echo $result[3] ?>" required>
+                  <span class=" col-2 col-form-label text-danger">* 必填项</span>
+                </div>
+                <div class="form-row mt-3">
+                  <label for="title" class="col-2 text-center col-form-label">公告题目：</label>
+                  <input type="text" class="col-8 form-control" name="ggtitle" placeholder="请输入弹窗公告题目" value="<?php echo $result[4] ?>" required>
+                  <span class=" col-2 col-form-label text-danger">* 必填项</span>
+                </div>
+                <div class="form-row mt-3">
+                  <label for="title" class="col-2 text-center col-form-label">公告内容：</label>
+                  <input type="textarea" class="col-8 form-control" name="shuoming" placeholder="请输入弹窗公告内\\n换行" value="<?php echo $result[5] ?>" required>
+                  <span class=" col-2 col-form-label text-danger">* 必填项</span>
+                </div>
+                <div class="form-row mt-3">
+                  <label for="title" class="col-2 text-center col-form-label">订单查询：</label>
+                  <input type="text" class="col-8 form-control" name="chaxun" placeholder="请输入订单查询链接" value="<?php echo $result[6] ?>" required>
                   <span class=" col-2 col-form-label text-danger">* 必填项</span>
                 </div>
                 <div class="form-row mt-3">

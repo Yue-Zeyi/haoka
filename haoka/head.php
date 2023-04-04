@@ -40,7 +40,7 @@
         </li>
         <li class="list-group-item list-group-item-action">
           <a href="system.php" class="text-decoration-none text-secondary">
-            <i class="iconfont icon-zhanghuguanli pr-1"></i>客服配置
+            <i class="iconfont icon-zhanghuguanli pr-1"></i>其他配置
           </a>
         </li>
       </div>

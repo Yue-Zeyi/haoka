@@ -71,9 +71,11 @@
             <div class="alllist">
               <img class="alllistl" src="<?php echo $row["zhutu"] ?>" onclick="javascript:location.href='<?php echo $row["link"] ?>'" />
               <div class="alllistc" onclick="javascript:location.href='<?php echo $row["link"] ?>'">
-                <div class="listc1 ellipse1"><span class="shouquan">授权专营</span><?php echo $row["name"] ?></div>
+                <div class="listc1 ellipse1"><?php echo $row["name"] ?><time><?php echo $row["ltime"] ?></time>
+                  <empty><?php echo $row["xuanhao"] ?></empty>
+                </div>
                 <div class="listc2 ellipse1"><span><?php echo $row["jieshao"] ?></span></div>
-                <div class="pull-left"><span class="shoujia">0元领取</span><span class="baoyou">全国包邮</span>&nbsp;<span class="baoyou"><?php echo $row["ltime"] ?></span></div>
+                <div class="pull-left"><span class="baoyou"><?php echo $row["baoyou"] ?></span>&nbsp;&nbsp;<span class="guishudi">归属地：<?php echo $row["gsd"] ?></span></div>
               </div>
               <div class="alllistr1" onclick="javascript:location.href='<?php echo $row["link"] ?>'">
                 立即领取</div>

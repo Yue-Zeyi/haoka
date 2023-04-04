@@ -20,9 +20,6 @@
     ?>
     <?php require_once('head.php'); ?>
     <div class="col-10">
-        <div class="p-3 border mb-3 bg-white">
-            <h4 class="mb-0">产品修改</h4>
-        </div>
         <div class="row mt-3">
             <div class="col">
                 <div class="card">
@@ -75,6 +72,21 @@
                                 ?>
                                 <span class="col-2 col-form-label text-danger">* 必填项</span>
 
+                            </div>
+                            <div class="form-row mt-3">
+                                <label for="title" class="col-2 text-center col-form-label">归属地：</label>
+                                <input type="text" class="col-8 form-control" name="gsd" placeholder="请输入号卡归属地" value="<?php echo $rows[8] ?>" required>
+                                <span class="col-2 col-form-label text-danger">* 必填项</span>
+                            </div>
+                            <div class="form-row mt-3">
+                                <label for="title" class="col-2 text-center col-form-label">选号方式：</label>
+                                <input type="text" class="col-8 form-control" name="xuanhao" placeholder="请输入选号方式（激活选号/选号下单/随机号码）" value="<?php echo $rows[9] ?>" required>
+                                <span class="col-2 col-form-label text-danger">* 必填项</span>
+                            </div>
+                            <div class="form-row mt-3">
+                                <label for="title" class="col-2 text-center col-form-label">快递方式：</label>
+                                <input type="text" class="col-8 form-control" name="baoyou" placeholder="可输入全国免费包邮/京东物流等" value="<?php echo $rows[10] ?>" required>
+                                <span class="col-2 col-form-label text-danger">* 必填项</span>
                             </div>
                             <div class="form-row mt-3">
                                 <label for="title" class="col-2 text-center col-form-label">主图链接：</label>

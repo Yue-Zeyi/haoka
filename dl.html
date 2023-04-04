@@ -14,13 +14,230 @@
   <!--样式文件-->
   <link rel="stylesheet" href="other/common.css">
   <link rel="stylesheet" href="other/bootstrap.min.css">
+  <script src="other/jquery.slim.min.js"></script>
+
+  <script src="other/bootstrap.bundle.min.js"></script>
+  <title>号卡服务客服</title>
+  <style>
+    .card {
+      border-radius: 0rem;
+    }
+
+    .card-header {
+      padding: 0.5rem 0.25rem;
+    }
+
+    .card-body {
+      -ms-flex: 1 1 auto;
+      flex: 1 1 auto;
+      padding: 0.75rem;
+    }
+
+    .card button {
+      color: black;
+      font-size: 14px;
+    }
+
+    .apply_da {
+      width: 17.5%;
+      float: left;
+      text-align: center;
+      margin-right: 3%;
+    }
+
+    .liucheng {
+      margin-bottom: 10px;
+      background: -webkit-linear-gradient(left, #54a1f7, #4262F4) no-repeat;
+      border-radius: 50px;
+      display: -webkit-inline-box;
+      display: -webkit-inline-flex;
+      display: -ms-inline-flexbox;
+      display: inline-flex;
+      width: 50px;
+      height: 50px;
+      -webkit-box-pack: center;
+      -webkit-justify-content: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+      -webkit-box-align: center;
+      -webkit-align-items: center;
+    }
+
+    .apply_da img {
+      width: 25px;
+    }
+
+    .apply_dc {
+      width: 100%;
+      font-size: 12px;
+      color: #666;
+      text-align: center;
+      line-height: 18px;
+      margin-top: 0px;
+    }
+  </style>
 </head>
-<div id="zhanwei"></div>
-<title>号卡服务客服</title>
-<div id="kf_beizhu">
-  <p style="color:#f00;text-align:center;">代理加盟说明</p>
-  中国移动、中国电信、中国联通这3大运营商，每年都会推出一些不同套餐的手机卡， 他们内部对这些卡的增量都是有 KPI 的，而这些 KPI
-  下放后最终就落到每个城市当地的营业厅了。而当地营业厅为了尽快完成任务一般会选择将这些任务外包给渠道代理商<br><br>简单说，就是谁能帮他们获客，运营商就给谁奖励，金额大概是30-220
-  元不等，不同的套餐的佣金可能会有区别。很明显，现在D音上的一些主播在送卡的话，基本就是属于这个业务里面外包团队的这个角色。<br><br>
-  流量卡是现在生活中比较常见的一种产品，而且有着较大的依赖性，所以手机中会使用到一些优质的电话号码，如果你对行业有所了解，有优质的社会资源或者有相关的团队，请联系客服加盟成为号卡代理！
-</div>
+
+<body>
+  <div id="kf_beizhu">
+    <div class="accordion" id="accordionExample">
+      <div class="card">
+        <div class="card-header" id="headingooo">
+          <h4 class="mb-0" style="text-align: center; color: #0060ce;font-weight: 500;">
+            常见问题解答
+          </h4>
+        </div>
+        <div class="card">
+          <div class="card-header" id="headingOne">
+            <h2 class="mb-0">
+              <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse"
+                data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                1.办理的卡是正规手机卡吗？
+              </button>
+            </h2>
+          </div>
+
+          <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+            <div class="card-body">
+              本平台的所有产品均为官方授权运营商正规卡，您可以拨打人工客服或者登录线上营业厅均可查询！
+              <!-- <code>.show</code> class. -->
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header" id="headingTwo">
+            <h2 class="mb-0">
+              <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
+                data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                2.办理的卡不想用了如何注销？
+              </button>
+            </h2>
+          </div>
+          <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+            <div class="card-body">
+              2019年1月1日起工信部已经支持号卡异地销户，如需要办理销户直接拨打运营商对应官方客服电话或在线上营业厅(官方APP)申请销户即可。
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header" id="headingThree">
+            <h2 class="mb-0">
+              <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
+                data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                3.套餐会不会出现乱扣费的情况？
+              </button>
+            </h2>
+          </div>
+          <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+            <div class="card-body">
+              本平台办理的产品均为运营商正规卡，套餐及资费以申请时的套餐详情为准，账单详细均可通过官方渠道查询。
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header" id="headingFour">
+            <h2 class="mb-0">
+              <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
+                data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                4.办理的卡如何激活使用，方便吗？
+              </button>
+            </h2>
+          </div>
+          <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
+            <div class="card-body">
+              网上办卡与线下营业厅办卡无异，收到卡后需要订单申请本人按照快递包裹内内激活说明书几分钟便可激活，若说明书丢失，请联系客服获取激活方式，部分产品为运营商工作人员上门配送现场激活！
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header" id="headingFive">
+            <h2 class="mb-0">
+              <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
+                data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                5.办理的卡可以选择号码和归属地吗？
+              </button>
+            </h2>
+          </div>
+          <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordionExample">
+            <div class="card-body">
+              因优惠政策，大部分卡归属地随机，不可选号，有特殊标注的，可选号下单或激活时进入号码池挑选心仪号码。
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header" id="headingFivi">
+            <h2 class="mb-0">
+              <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
+                data-target="#collapseFivi" aria-expanded="false" aria-controls="collapseFivi">
+                6.收到卡不想要或者想改收货地址信息？
+              </button>
+            </h2>
+          </div>
+          <div id="collapseFivi" class="collapse" aria-labelledby="headingFivi" data-parent="#accordionExample">
+            <div class="card-body">
+              收到卡后可以告诉快递人员拒收或者收货不激活，号卡十五天内不激活会自动失效并不会对你造成任何影响。订单生成后订单信息无法更改，如想更改收货信息可以关注物流信息，主动和快递员联系。
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header" id="headingSeven">
+            <h2 class="mb-0">
+              <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
+                data-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+                7.申请办卡有年龄限制或其他要求限制吗？
+              </button>
+            </h2>
+          </div>
+          <div id="collapseSeven" class="collapse" aria-labelledby="headingSeven" data-parent="#accordionExample">
+            <div class="card-body">
+              办卡需年满16周岁且低于60周岁（以身份证年龄为准），部分办卡年龄为满16周岁且低于50周岁（以身份证年龄为准）。申请办卡人和激活用卡人身份信息必须保持一致，且承诺绝不会把卡用于任何有关黄赌毒、诈骗团伙等违法行为！
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-body">
+            <div class="cona">
+              <div class="apply_da">
+                <div class="liucheng">
+                  <img src="img/zl.png" class="apply_db">
+                </div>
+                <div class="apply_dc">提交信息</div>
+
+              </div>
+              <div class="apply_da">
+                <div class="liucheng">
+                  <img src="img/sh.png" class="apply_db">
+                </div>
+                <div class="apply_dc">审核开卡</div>
+              </div>
+              <div class="apply_da">
+                <div class="liucheng">
+                  <img src="img/fh.png" class="apply_db">
+                </div>
+                <div class="apply_dc">官方发货</div>
+              </div>
+              <div class="apply_da">
+                <div class="liucheng">
+                  <img src="img/rz.png" class="apply_db">
+                </div>
+                <div class="apply_dc">实名激活</div>
+              </div>
+              <div class="apply_da" style="margin-right: 0;">
+                <div class="liucheng">
+                  <img src="img/sy1.png" class="apply_db">
+                </div>
+                <div class="apply_dc">正常使用</div>
+              </div>
+              <div class="clear"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+
+
+
+</html>

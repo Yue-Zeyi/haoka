@@ -14,11 +14,7 @@
 
     <?php require_once('head.php'); ?>
     <div class="col-10">
-        <div class="p-3 border mb-3 bg-white d-flex justify-content-between">
-            <h4>添加号卡产品
-            </h4>
-            <a href="loginout.php" class="text-dark text-decoration-none"><i class="iconfont icon-tuichu pr-1"></i>退出</a>
-        </div>
+
         <div class="row mt-3">
             <div class="col">
                 <div class="card">
@@ -72,6 +68,21 @@
 
                     ?>
                     <div class="form-row mt-3">
+                        <label for="title" class="col-2 text-center col-form-label">归属地：</label>
+                        <input type="text" class="col-8 form-control" name="gsd" placeholder="请输入号卡归属地" required>
+                        <span class="col-2 col-form-label text-danger">* 必填项</span>
+                    </div>
+                    <div class="form-row mt-3">
+                        <label for="title" class="col-2 text-center col-form-label">选号方式：</label>
+                        <input type="text" class="col-8 form-control" name="xuanhao" placeholder="请输入选号方式（激活选号/选号下单/随机号码）" required>
+                        <span class="col-2 col-form-label text-danger">* 必填项</span>
+                    </div>
+                    <div class="form-row mt-3">
+                        <label for="title" class="col-2 text-center col-form-label">包邮方式：</label>
+                        <input type="text" class="col-8 form-control" name="baoyou" placeholder="可输入全国免费包邮/京东物流等" required>
+                        <span class="col-2 col-form-label text-danger">* 必填项</span>
+                    </div>
+                    <div class="form-row mt-3">
                         <label for="title" class="col-2 text-center col-form-label">主图链接：</label>
                         <input type="text" class="col-8 form-control" name="zhutu" placeholder="主图URL地址" required>
                         <span class="col-2 col-form-label text-danger">* 必填项</span>
@@ -98,7 +109,6 @@
                                     </div> -->
                     <div class="form-row mt-3">
                         <div class="offset-2">
-
                             <button class="btn btn-success" type="submit" value="添加">添加</button>
                             <button class="btn btn-danger ml-3" type="reset" value="重置">重置</button>
                         </div>

@@ -30,7 +30,7 @@ if (isset($_SESSION["username"])) {
             </div>
             <div class="card-body">
               <form name="form1" id="form1" method="post" action="deleteall.php">
-                <table class="table table-striped text-center ">
+                <table class="table table-striped text-center" scroll:no>
                   <?php
                   include_once("../untils/conn.php");
                   mysqli_query($con, "set names utf8");
@@ -67,6 +67,8 @@ if (isset($_SESSION["username"])) {
                           <th>主图</th>
                           <th>运营商</th>
                           <th>时长</th>
+                          <th>包邮</th>
+                          <th>归属地</th>
                           <th>排序</th>
                           <th>下单地址</th>
                           <th>操作</th>
@@ -77,22 +79,26 @@ if (isset($_SESSION["username"])) {
                         while ($row = mysqli_fetch_array($data)) {
                         ?>
                           <tr>
-                            <td style="width:80px;">
+                            <td style="width:8%;">
                               <input type="checkbox" name="chk[]" id="chk" value="<?php echo $row["id"]; ?>" /> <?php echo $row["id"] ?>
                             </td>
-                            <td>
+                            <td style="width:0px;padding: 0px;">
                             </td>
-                            <td><?php echo $row["name"] ?>
+                            <td style="width:10%;"><?php echo $row["name"] ?>
                             </td>
-                            <td><?php echo $row["jieshao"] ?>
+                            <td style="width:10%;"><?php echo $row["jieshao"] ?>
                             </td>
-                            <td><img src="<?php echo $row["zhutu"] ?>" alt="" style="width:60px;">
+                            <td style="width:10%;"><img src="<?php echo $row["zhutu"] ?>" alt="" style="width:60px;">
                             </td>
-                            <td style="width:100px;"><?php echo $row["yys"] ?>
+                            <td style="width:10%;"><?php echo $row["yys"] ?>
                             </td>
-                            <td><?php echo $row["ltime"] ?>
+                            <td style="width:10%;"><?php echo $row["ltime"] ?>
                             </td>
-                            <td style="width:80px;"><?php echo $row["xuhao"] ?>
+                            <td style="width:10%;"><?php echo $row["baoyou"] ?>
+                            </td>
+                            <td style="width:8%;"><?php echo $row["gsd"] ?>
+                            </td>
+                            <td style="width:8%;"><?php echo $row["xuhao"] ?>
                             </td>
                             <!-- 上下架按钮 
                                 <td>
@@ -102,7 +108,7 @@ if (isset($_SESSION["username"])) {
                                   </div>
                                 </td> -->
                             <td><?php echo $row["link"] ?></td>
-                            <td style="width:150px;">
+                            <td style="width:12%;">
                               <a href=update.php?id=<?php echo $row['id'] ?> class="btn btn-success btn-sm">修改</a>
                               <a href="delete.php?id=<?php echo $row['id'] ?>" onclick=" return del()" class="btn btn-danger btn-sm">删除</a>
                             </td>
@@ -114,7 +120,7 @@ if (isset($_SESSION["username"])) {
                       <tfoot>
                         <tr>
                           <td colspan="4" style="text-align: left;"><a href="" class="btn btn-info btn-sm" onclick="return chek()">全选/取消</a> &nbsp;&nbsp;<input type="submit" onclick="return del();" class="btn btn-warning btn-sm" value="删除选择" /></td>
-                          <td colspan="5" style="text-align: right;">
+                          <td colspan="8" style="text-align: right;">
                         <?php
                         echo "<p>共 $maxpage 页&nbsp;&nbsp;";
                         echo "每页 $page_size 项&nbsp;&nbsp;";

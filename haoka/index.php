@@ -32,7 +32,7 @@
                 <div class="card text-center">
                     <div class="card-header bg-info text-white">当前版本</div>
                     <div class="card-body">
-                        1.2.0 | Standard
+                        1.2.5 | Standard
                     </div>
                 </div>
                 <div class="card text-center">

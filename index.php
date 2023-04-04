@@ -98,7 +98,7 @@
         <p style="color: #dc3c41;margin: 6 0 5px;">
           <img style="width: 24px;" src="img/gzgzh.png">
         </p>
-        <p style="color: black;">加盟代理</p>
+        <p style="color: black;">常见问题</p>
       </a>
     </div>
 
@@ -111,35 +111,44 @@
       </a>
     </div>
   </div>
-  <!-- 弹窗代码开始 -->
+</body>
+<script src="https://cdn.bootcss.com/sweetalert/2.1.0/sweetalert.min.js">
+</script>
+<script>
+  <?php
+  include_once("untils/conn.php");
+  $sql = "select * from kefu where kefu='kefu'";
+  $data = mysqli_query($con, $sql);
+  $result = mysqli_fetch_row($data);
+  $php_jstitle =  $result['4'];
+  $php_jstext =  $result['5'];
+  echo "var jstitle='$php_jstitle';";
+  echo "var jstext='$php_jstext';";
+  ?>
+  swal(jstitle, '\n' + jstext, 'success');
 
-  <script src="https://cdn.bootcss.com/sweetalert/2.1.0/sweetalert.min.js"></script>
-  <script>
-    swal('说明', '\n\n1.所有号卡均为三大运营商正规手机卡。 \n\n2.本人实名申请激活。申请身份证信息需和激活身份证信息需保持一致。  \n\n3.不可以重复申请，如需申请多张，请联系客服申请。 \n\n4.所有套餐按照要求参加首次充值规定的金额后，才可以享受优惠(请仔细查阅)', 'success');
+  function AddFavorite(title, url) {
+    try {
 
-    function AddFavorite(title, url) {
+      window.external.addFavorite(url, title);
+
+    } catch (e) {
+
       try {
 
-        window.external.addFavorite(url, title);
+        window.sidebar.addPanel(title, url, );
 
       } catch (e) {
 
-        try {
-
-          window.sidebar.addPanel(title, url, );
-
-        } catch (e) {
-
-          alert("抱歉，您所使用的浏览器无法完成此操作。");
-
-        }
+        alert("抱歉，您所使用的浏览器无法完成此操作。");
 
       }
 
     }
-  </script>
 
-</body>
+  }
+</script>
+
 <script>
   function index() {
     parent.location.reload();
@@ -154,9 +163,8 @@
   }
 
   function cxzx() {
-    document.getElementById("mainFrame").src = "https://haokawx.lot-ml.com/Search/Index";
+    document.getElementById("mainFrame").src = "cx.php";
   }
 </script>
-
 
 </html>
