@@ -1,8 +1,8 @@
 <?php
 $servername = "localhost";
-$username = "root";
-$password = "123456";
-$tab = "haoka";
+$username = "数据库账号";
+$password = "数据库密码";
+$tab = "数据库名称";
 
 // 创建连接
 $con = new mysqli($servername, $username, $password, $tab);
