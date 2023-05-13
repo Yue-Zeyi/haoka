@@ -8,10 +8,11 @@
  </script>
 
 
- <script type="text/javascript" src="js/jquery.min.js"></script>
- <script type="text/javascript" src="js/bootstrap.min.js"></script>
- <script type="text/javascript" src="js/perfect-scrollbar.min.js"></script>
- <script type="text/javascript" src="js/main.min.js"></script>
- <script type="text/javascript" src="js/index.js"></script>
+
+ <script type="text/javascript" src="../static/js/jquery.min.js"></script>
+ <script type="text/javascript" src="../static/js/bootstrap.min.js"></script>
+ <script type="text/javascript" src="../static/js/perfect-scrollbar.min.js"></script>
+ <script type="text/javascript" src="../static/js/main.min.js"></script>
+ <script type="text/javascript" src="../static/js/index.js"></script>
 
  </html>

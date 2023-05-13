@@ -9,9 +9,9 @@
     <meta name="keywords" content="LightYear,光年,后台模板,后台管理系统,光年HTML模板">
     <meta name="description" content="LightYear是一个基于Bootstrap v3.3.7的后台管理系统的HTML模板。">
     <meta name="author" content="yinqi">
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/materialdesignicons.min.css" rel="stylesheet">
-    <link href="css/style.min.css" rel="stylesheet">
+    <link href="../static/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../static/css/materialdesignicons.min.css" rel="stylesheet">
+    <link href="../static/css/style.min.css" rel="stylesheet">
     <style>
         .lyear-wrapper {
             position: relative;
@@ -80,15 +80,14 @@
                 </form>
                 <hr>
                 <footer class="col-sm-12 text-center">
-                    <p class="m-b-0">Copyright © 2023 <a href="https://www.yuezeyi.com/541.html">岳泽以</a>. All right reserved</p>
+                    <p class="m-b-0">Copyright © 2023 <a href="https://www.yuezeyi.com/541.html" target="_blank">岳泽以</a>. All right reserved</p>
                 </footer>
             </div>
         </div>
     </div>
 
-    <script type="text/javascript" src="js/jquery.min.js"></script>
-    <script type="text/javascript" src="js/bootstrap.min.js"></script>
-    <script type="text/javascript"></script>
+    <script type="text/javascript" src="../static/js/jquery.min.js"></script>
+    <script type="text/javascript" src="../static/js/bootstrap.min.js"></script>
 </body>
 
 </html>

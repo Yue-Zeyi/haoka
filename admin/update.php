@@ -15,7 +15,7 @@ if (isset($_SESSION["username"])) {
             ?>
             <div class="card">
                 <div class="card-header bg-primary">
-                    <h4>添加产品</h4>
+                    <h4>产品修改</h4>
                 </div>
                 <div class="card-body">
                     <form class="form-horizontal" action="controller/doUpdate.php" method="POST">

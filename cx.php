@@ -4,14 +4,14 @@
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>查询中心</title>
-  <link rel="stylesheet" href="other/bootstrap.min.css">
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+  <title>查询中心 - 号卡中心</title>
+  <link rel="stylesheet" href="static/css/bootstrap4.min.css">
 </head>
 <?php
 include_once("untils/conn.php");
-$sql = "select * from kefu where kefu='kefu'";
+$uid = $_GET['uid'];
+$sql = "select * from kefu where uid=$uid ";
 $data = mysqli_query($con, $sql);
 $result = mysqli_fetch_row($data);
 ?>
@@ -28,7 +28,7 @@ $result = mysqli_fetch_row($data);
         <blockquote class="blockquote mb-0">
           <p>本平台已办理订单综合查询</p>
           <footer>
-            <a href="<?php echo $result[6] ?>" type="button" class="btn btn-light btn-sm">点击进入查询</a>
+            <a href="<?php echo $result[5] ?>" type="button" class="btn btn-light btn-sm">点击进入查询</a>
           </footer>
         </blockquote>
       </div>
@@ -74,9 +74,10 @@ $result = mysqli_fetch_row($data);
         </blockquote>
       </div>
     </div>
-
-
   </div>
+  <!-- 底部导航 -->
+  <?php require_once('nav.php'); ?>
+  <!-- 底部导航 -->
 </body>
 
 </html>

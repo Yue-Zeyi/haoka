@@ -4,20 +4,63 @@
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maxi-mum-scale=1.0,user-scalable=no" name="viewport" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
   <title>号卡中心</title>
-  <link rel="stylesheet" href="other/main.css">
+  <link rel="stylesheet" href="static/css/main.css">
+  <style>
+    .tab-container {
+      display: flex;
+      align-items: center;
+    }
+
+    .tab-arrow {
+      font-size: 20px;
+      border: none;
+      background-color: transparent;
+      color: #fd5200;
+      cursor: pointer;
+    }
+
+    .tab-wrapper {
+      display: flex;
+      overflow-x: hidden;
+      width: 100%;
+      -webkit-overflow-scrolling: touch;
+      /* for smooth scrolling on iOS */
+      scroll-behavior: smooth;
+      /* for smooth scrolling in modern browsers */
+      scroll-snap-type: x mandatory;
+      -webkit-scroll-snap-type: mandatory;
+      -ms-scroll-snap-type: mandatory;
+    }
+
+    .tab {
+      flex-shrink: 0;
+
+      height: 50px;
+      line-height: 50px;
+      text-align: center;
+      /* margin-right: 10px; */
+      scroll-snap-align: center;
+    }
+  </style>
 </head>
 
 <body>
   <div class="focus">
+    <?php
+    include_once("untils/conn.php");
+    $uid = $_GET['uid'];
+    $sqlbanner = "select * from kefu where uid=$uid ";
+    $databanner  = mysqli_query($con, $sqlbanner);
+    $resultbanner  = mysqli_fetch_row($databanner);
+    ?>
     <ul>
-      <li><img src="img/1.png"></li>
-      <li><img src="img/2.png" alt=""></li>
-      <li><img src="img/1.png" alt=""></li>
-      <li><img src="img/2.png" alt=""></li>
-      <li><img src="img/1.png" alt=""></li>
+      <li><img src="<?php echo $resultbanner[7] ?>"></li>
+      <li><img src="<?php echo $resultbanner[8] ?>"></li>
+      <li><img src="<?php echo $resultbanner[7] ?>"></li>
+      <li><img src="<?php echo $resultbanner[8] ?>"></li>
+      <li><img src="<?php echo $resultbanner[7] ?>"></li>
     </ul>
     <!-- 小圆点 -->
     <ol>
@@ -45,26 +88,41 @@
       <?php
       include_once("untils/conn.php");
       mysqli_query($con, "set names utf8");
-      $yysname = $_GET['yys'];
+      $uid = $_GET['uid'];
+      $yysid = $_GET['yys'];
+      if ($yysid == null) {
+        $yssql = "select * from sort where uid=$uid ORDER BY sortid DESC LIMIT 1 ";
+        $ysdata = mysqli_query($con, $yssql);
+        $ysresult = mysqli_fetch_row($ysdata);
+        $yysid = $ysresult['0'];
+      }
+      $yyssql = "select * from sort where id='$yysid' ";
+      $yysdata = mysqli_query($con, $yyssql);
+      $yysresult = mysqli_fetch_row($yysdata);
+      $yysname = $yysresult['1'];
       if ($con) {
         //选择数据库
         if ($db) {
           //获取数据总行数
-          $sql = "select * from list  where yys='$yysname' ORDER BY xuhao DESC";
-          $sortsql = "select * from sort  ORDER BY sortid DESC";
+          $sql = "select * from list  where yys='$yysname' and uid='$uid' and status=1 ORDER BY xuhao DESC";
+          $sortsql = "select * from sort where uid='$uid' ORDER BY sortid DESC";
           $data = mysqli_query($con, $sql);
           $sortdata = mysqli_query($con, $sortsql);
-      ?> <ul class="box">
-            <?php
-            while ($sortrow = mysqli_fetch_array($sortdata)) {
-            ?> <?php $dqid = $sortrow["yys"] ?>
-              <li class="cat_child">
-                <a href="?yys=<?php echo $sortrow["yys"] ?>" class="<?php echo $yysname == $dqid ? 'active' : '' ?>"><?php echo $sortrow["yys"] ?></a>
-              </li>
-            <?php
-            }
-            ?>
-          </ul>
+      ?>
+          <div class="tab-container">
+            <button class="tab-arrow tab-arrow-left">&#10094;</button>
+            <div class="tab-wrapper">
+              <?php
+              while ($sortrow = mysqli_fetch_array($sortdata)) {
+              ?> <?php $dqid = $sortrow["yys"] ?>
+                <div class="tab cat_child"> <a href="?uid=<?php echo $uid ?>&yys=<?php echo $sortrow["id"] ?>" class="<?php echo $yysname == $dqid ? 'active' : '' ?>"><?php echo $sortrow["yys"] ?></a></div>
+              <?php
+              }
+              ?>
+            </div>
+            <button class="tab-arrow tab-arrow-right">&#10095;</button>
+          </div>
+
           <?php
           while ($row = mysqli_fetch_array($data)) {
           ?>
@@ -77,8 +135,7 @@
                 <div class="listc2 ellipse1"><span><?php echo $row["jieshao"] ?></span></div>
                 <div class="pull-left"><span class="baoyou"><?php echo $row["baoyou"] ?></span>&nbsp;&nbsp;<span class="guishudi">归属地：<?php echo $row["gsd"] ?></span></div>
               </div>
-              <div class="alllistr1" onclick="javascript:location.href='<?php echo $row["link"] ?>'">
-                立即领取</div>
+              <a href="<?php echo $row["link"] ?>" class="alllistr1">立即领取</a>
             </div>
       <?php
           }
@@ -91,7 +148,27 @@
   <div class="bottom1">
     <div class="height1"></div>
   </div>
+
 </body>
+<script>
+  const tabWrapper = document.querySelector('.tab-wrapper');
+  const arrowLeft = document.querySelector('.tab-arrow-left');
+  const arrowRight = document.querySelector('.tab-arrow-right');
+
+  arrowLeft.addEventListener('click', function() {
+    tabWrapper.scrollBy({
+      left: -200,
+      behavior: 'smooth'
+    });
+  });
+
+  arrowRight.addEventListener('click', function() {
+    tabWrapper.scrollBy({
+      left: 200,
+      behavior: 'smooth'
+    });
+  });
+</script>
 <script>
   /** @format */
   window.addEventListener('load', function() {

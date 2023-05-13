@@ -9,7 +9,7 @@ if (isset($_SESSION["username"])) {
       <div class="row">
         <div class="col-lg-12">
           <div class="card">
-            <div class="card-toolbar clearfix">
+            <!-- <div class="card-toolbar clearfix">
               <form class="pull-right search-bar" method="get" action="#!" role="form">
                 <div class="input-group">
                   <div class="input-group-btn">
@@ -28,7 +28,7 @@ if (isset($_SESSION["username"])) {
               <div class="toolbar-btn-action">
                 <a class="btn btn-primary m-r-5" href="addSort.php"><i class="mdi mdi-plus"></i> 新增类目</a>
               </div>
-            </div>
+            </div> -->
             <div class="card-body">
               <div class="table-responsive">
                 <form name="form1" id="form1" method="post" action="controller/doSort.php">
@@ -36,6 +36,7 @@ if (isset($_SESSION["username"])) {
                     <thead>
                       <tr>
                         <th>编号</th>
+                        <th>UID</th>
                         <th>名称</th>
                         <th>别名</th>
                         <th>序号</th>
@@ -62,6 +63,7 @@ if (isset($_SESSION["username"])) {
                           ?>
                             <tr>
                               <td><?php echo $sortrow["id"] ?></td>
+                              <td><?php echo $sortrow["uid"] ?></td>
                               <td><?php echo $sortrow["yys"] ?></td>
                               <td><?php echo $sortrow["yysabbr"] ?></td>
                               <td><?php echo $sortrow["sortid"] ?></td>

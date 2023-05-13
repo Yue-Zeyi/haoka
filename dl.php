@@ -1,23 +1,17 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-  <meta name="wechat-enable-text-zoom-em" content="true">
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="color-scheme" content="light dark">
-  <meta name="viewport"
-    content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0,viewport-fit=cover">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
-  <meta name="format-detection" content="telephone=no">
-  <link rel="shortcut icon" href="https://res.wx.qq.com/a/wx_fed/assets/res/NTI4MWU5.ico">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maxi-mum-scale=1.0,user-scalable=no" name="viewport" />
   <!--样式文件-->
-  <link rel="stylesheet" href="other/common.css">
-  <link rel="stylesheet" href="other/bootstrap.min.css">
-  <script src="other/jquery.slim.min.js"></script>
-
-  <script src="other/bootstrap.bundle.min.js"></script>
-  <title>号卡服务客服</title>
+  <link rel="stylesheet" href="static/css/common.css">
+  <link rel="stylesheet" href="static/css/bootstrap4.min.css">
+  <script src="static/js/jquery.slim.min.js"></script>
+  <script src="static/js/bootstrap4.bundle.min.js"></script>
+  <title>常见问题 - 号卡中心</title>
   <style>
     .card {
       border-radius: 0rem;
@@ -25,6 +19,7 @@
 
     .card-header {
       padding: 0.5rem 0.25rem;
+      background-color: #fff;
     }
 
     .card-body {
@@ -37,6 +32,9 @@
       color: black;
       font-size: 14px;
     }
+
+
+
 
     .apply_da {
       width: 17.5%;
@@ -60,7 +58,6 @@
       -ms-flex-pack: center;
       justify-content: center;
       -webkit-box-align: center;
-      -webkit-align-items: center;
     }
 
     .apply_da img {
@@ -77,21 +74,27 @@
     }
   </style>
 </head>
+<?php
+include_once("untils/conn.php");
+$uid = $_GET['uid'];
+$sql = "select * from kefu where uid=$uid ";
+$data = mysqli_query($con, $sql);
+$result = mysqli_fetch_row($data);
+?>
 
 <body>
   <div id="kf_beizhu">
     <div class="accordion" id="accordionExample">
       <div class="card">
         <div class="card-header" id="headingooo">
-          <h4 class="mb-0" style="text-align: center; color: #0060ce;font-weight: 500;">
-            常见问题解答
+          <h4 class="mb-0" style="text-align: center; padding-top:10px;padding-bottom:10px;color: #000;font-weight: 500;">
+            常见问题
           </h4>
         </div>
         <div class="card">
           <div class="card-header" id="headingOne">
             <h2 class="mb-0">
-              <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse"
-                data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+              <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                 1.办理的卡是正规手机卡吗？
               </button>
             </h2>
@@ -107,8 +110,7 @@
         <div class="card">
           <div class="card-header" id="headingTwo">
             <h2 class="mb-0">
-              <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
-                data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+              <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
                 2.办理的卡不想用了如何注销？
               </button>
             </h2>
@@ -122,8 +124,7 @@
         <div class="card">
           <div class="card-header" id="headingThree">
             <h2 class="mb-0">
-              <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
-                data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+              <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
                 3.套餐会不会出现乱扣费的情况？
               </button>
             </h2>
@@ -137,8 +138,7 @@
         <div class="card">
           <div class="card-header" id="headingFour">
             <h2 class="mb-0">
-              <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
-                data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+              <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
                 4.办理的卡如何激活使用，方便吗？
               </button>
             </h2>
@@ -152,8 +152,7 @@
         <div class="card">
           <div class="card-header" id="headingFive">
             <h2 class="mb-0">
-              <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
-                data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+              <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
                 5.办理的卡可以选择号码和归属地吗？
               </button>
             </h2>
@@ -167,8 +166,7 @@
         <div class="card">
           <div class="card-header" id="headingFivi">
             <h2 class="mb-0">
-              <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
-                data-target="#collapseFivi" aria-expanded="false" aria-controls="collapseFivi">
+              <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseFivi" aria-expanded="false" aria-controls="collapseFivi">
                 6.收到卡不想要或者想改收货地址信息？
               </button>
             </h2>
@@ -182,8 +180,7 @@
         <div class="card">
           <div class="card-header" id="headingSeven">
             <h2 class="mb-0">
-              <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
-                data-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+              <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
                 7.申请办卡有年龄限制或其他要求限制吗？
               </button>
             </h2>
@@ -194,47 +191,12 @@
             </div>
           </div>
         </div>
-        <div class="card">
-          <div class="card-body">
-            <div class="cona">
-              <div class="apply_da">
-                <div class="liucheng">
-                  <img src="img/zl.png" class="apply_db">
-                </div>
-                <div class="apply_dc">提交信息</div>
-
-              </div>
-              <div class="apply_da">
-                <div class="liucheng">
-                  <img src="img/sh.png" class="apply_db">
-                </div>
-                <div class="apply_dc">审核开卡</div>
-              </div>
-              <div class="apply_da">
-                <div class="liucheng">
-                  <img src="img/fh.png" class="apply_db">
-                </div>
-                <div class="apply_dc">官方发货</div>
-              </div>
-              <div class="apply_da">
-                <div class="liucheng">
-                  <img src="img/rz.png" class="apply_db">
-                </div>
-                <div class="apply_dc">实名激活</div>
-              </div>
-              <div class="apply_da" style="margin-right: 0;">
-                <div class="liucheng">
-                  <img src="img/sy1.png" class="apply_db">
-                </div>
-                <div class="apply_dc">正常使用</div>
-              </div>
-              <div class="clear"></div>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
   </div>
+  <!-- 底部导航 -->
+  <?php require_once('nav.php'); ?>
+  <!-- 底部导航 -->
 </body>
 
 

@@ -1,0 +1,99 @@
+html body {
+  background: #eee;
+}
+
+#zhanwei {
+  width: 100%;
+  height: 45px;
+}
+
+#scanTips {
+  text-align: center;
+  font-size: 15px;
+  font-weight: bold;
+  color: #999;
+  margin: 15px auto 0;
+}
+#zm_qrcode {
+  width: 90%;
+  display: block;
+  margin: 15px auto 0;
+}
+#zm_qrcode img {
+  width: 100%;
+  display: block;
+}
+#qun_kf {
+  text-align: center;
+  font-size: 15px;
+  color: #999;
+  margin: 18px auto 0;
+}
+#qun_kf a {
+  text-decoration: none;
+  color: #999;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 2px;
+}
+
+#kf_safety {
+  width: 100%;
+  height: 45px;
+  background: #e8fef2;
+  position: fixed;
+  top: 0;
+}
+#kf_safety .icon {
+  width: 26px;
+  height: 26px;
+  float: left;
+  background: url('../img/renzhengIcon3.png') no-repeat;
+  margin: 9.5px 9.5px;
+}
+#kf_safety .text {
+  width: calc(100% - 45px);
+  height: 45px;
+  float: left;
+  color: rgba(7, 193, 96);
+  font-size: 15px;
+  line-height: 45px;
+}
+#kf_beizhu {
+  text-align: justify;
+  color: #666;
+  padding: 15px 15px;
+  margin: 15px auto 0;
+  background: #fff;
+  border-radius: 10px;
+  width: 90%;
+  font-size: 15px;
+}
+#kfzm_qrcode {
+  width: 220px;
+  height: 220px;
+  margin: 20px auto 0;
+}
+#kfzm_qrcode img {
+  width: 220px;
+  height: 220px;
+}
+#wxnum {
+  text-align: center;
+  font-size: 16px;
+  color: #666;
+  margin: 17px auto 0;
+}
+#kf_online_true {
+  width: 90%;
+  padding: 16px 10px;
+  bottom: 30px;
+  background: rgba(7, 193, 96);
+  border-radius: 10px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  margin-top: 20px;
+  text-align: center;
+  font-size: 15px;
+  color: black;
+}

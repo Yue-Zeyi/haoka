@@ -20,23 +20,22 @@ if (isset($_SESSION["username"])) {
         </div>
         <div class="card-body">
           <form action="controller/doUser.php" method="POST">
-            <form action="controller/tianjiaSort.php" method="POST">
-              <div class="input-group m-b-10">
-                <label class="input-group-addon" id="basic-addon1">账号</label>
-                <input type="text" class="form-control" name="user" placeholder="请输入新用户名" value="<?php echo $rows[1] ?>" required>
+            <div class="input-group m-b-10">
+              <label class="input-group-addon" id="basic-addon1">账号</label>
+              <input type="text" class="form-control" name="user" placeholder="请输入新用户名" value="<?php echo $rows[1] ?>" required>
+            </div>
+            <div class="input-group m-b-10">
+              <label class="input-group-addon" id="basic-addon1">密码</label>
+              <input type="text" class="form-control" name="password" placeholder="请输入新密码" value="<?php echo $rows[2] ?>" required>
+            </div>
+            <div class="form-row mt-3">
+              <input type="hidden" name="id" value="<?php echo $id ?>">
+              <div class="offset-2">
+                <button class="btn btn-success" type="submit" value="添加">确认修改</button>
+                <!-- <button class="btn btn-danger ml-3" type="reset" value="重置">返回</button> -->
               </div>
-              <div class="input-group m-b-10">
-                <label class="input-group-addon" id="basic-addon1">密码</label>
-                <input type="text" class="form-control" name="password" placeholder="请输入新密码" value="<?php echo $rows[2] ?>" required>
-              </div>
-              <div class="form-row mt-3">
-                <input type="hidden" name="id" value="<?php echo $id ?>">
-                <div class="offset-2">
-                  <button class="btn btn-success" type="submit" value="添加">确认修改</button>
-                  <!-- <button class="btn btn-danger ml-3" type="reset" value="重置">返回</button> -->
-                </div>
-              </div>
-            </form>
+            </div>
+          </form>
         </div>
       </div>
     </div>

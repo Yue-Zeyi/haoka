@@ -9,8 +9,6 @@
         $row = mysqli_num_rows($result);
         $_SESSION["username"] = $name;
         if ($row) {
-
-
             echo "<script>alert('登录成功');location.href='../index.php';</script>";
         } else {
 
